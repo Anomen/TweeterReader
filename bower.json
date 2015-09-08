@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "marionette": "~2.4.2",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "requirejs": "~2.1.20",
+    "requirejs-text": "~2.0.14"
   }
 }
