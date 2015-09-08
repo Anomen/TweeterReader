@@ -1,0 +1,22 @@
+{
+  "name": "TwitterReader",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Anomen/TwitterReader",
+  "authors": [
+    "Kevin Vicrey <kevin.vicrey@nexu.org>"
+  ],
+  "description": "Simple Twitter reader that reads 3 accounts at the same time.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "marionette": "~2.4.2",
+    "lodash": "~3.10.1"
+  }
+}
