@@ -1,0 +1,35 @@
+@import "compass/css3";
+
+.dark-theme {
+  background-color: #003147;
+
+  .twitter-reader {
+    &.card {
+      background-color: rgb(74, 74, 74);
+      color: white;
+      border-color: #888;
+      @include box-shadow(#3A3A3A 0px 3px 2px);
+    }
+
+    &.account.item {
+      .title {
+        @include box-shadow(#E609FF 0px 3px 2px);
+        background-color: #A11FB6;
+
+        body.editMode & {
+          @include box-shadow(#C30101 0px 3px 2px);
+          background-color: #EF3131;
+        }
+      }
+    }
+  }
+
+  &.editMode {
+    .twitter-reader {
+      &.account.item .title {
+        @include box-shadow(#C30101 0px 3px 2px);
+        background-color: #EF3131;
+      }
+    }
+  }
+}

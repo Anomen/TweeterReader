@@ -10,14 +10,16 @@ define(function (require) {
         template: _.template(template),
         className: "twitter-reader settings",
         ui: {
-            checkbox: "input[type=checkbox]"
+            checkbox: "input[type=checkbox]",
+            theme: "select"
         },
         events: {
             "click input[type=checkbox]:checked + label": "_redirectHomepage",
             "click input[type=checkbox]:not(:checked) + label": "_redirectSettings"
         },
         modelEvents: {
-            "change:isEditMode": "_changeEditMode"
+            "change:isEditMode": "_changeEditMode",
+            "change:theme": "_changeTheme"
         },
         initialize: function () {
             this._changeEditMode();
@@ -43,6 +45,14 @@ define(function (require) {
         _leaveEditMode: function () {
             $("body").removeClass("editMode");
             $(this.ui.checkbox).prop("checked", false);
+
+            // Save theme
+            this.model.set("theme", $(this.ui.theme).find("option:selected").val());
+        },
+        _changeTheme: function () {
+            $("body").removeClass("default");
+            $("body").removeClass("dark-theme");
+            $("body").addClass(this.model.get("theme"));
         }
     });
 });

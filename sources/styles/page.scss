@@ -178,9 +178,14 @@ body {
       @include flex-direction(row);
       @include justify-content(flex-end);
       @include align-items(center);
+    }
 
-      select {
-        margin-right: 15px;
+    select {
+      margin-right: 15px;
+      display: none;
+
+      body.editMode & {
+        display: block;
       }
     }
   }
