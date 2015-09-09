@@ -18,6 +18,27 @@ define(function (require) {
             this.set("tweets", new TweetsCollection());
             this.on("change:username", this._resetTweets, this);
         },
+        validate: function (attrs) {
+            var errors = {};
+
+            if (attrs.username.search(/^[0-9a-zA-Z]+$/) === -1) {
+                errors.username = "Invalid entry.";
+            }
+
+            if (!_.isNumber(attrs.numberOfTweets)) {
+                errors.numberOfTweets = "Invalid entry: it must be a number.";
+            }
+
+            if (attrs.from !== null && !_.isDate(attrs.from)) {
+                errors.from = "Invalid date.";
+            }
+
+            if (attrs.to !== null && !_.isDate(attrs.to)) {
+                errors.to = "Invalid date";
+            }
+
+            return _.size(errors) > 0 ? errors : false;
+        },
         _resetTweets: function () {
             this.get("tweets").reset(null);
         },

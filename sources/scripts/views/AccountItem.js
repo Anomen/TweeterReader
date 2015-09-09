@@ -58,10 +58,18 @@ define(function (require) {
                     numberOfTweets: parseInt($(this.ui.numberOfTweets).val()),
                     from: $(this.ui.from).val() || null,
                     to: $(this.ui.to).val() || null
+                }, {
+                    validate: true
                 });
 
-                if (_.size(this.model.changed)) {
+                if (!this.model.validationError && _.size(this.model.changed)) {
                     this.render();
+                }
+                else if (this.model.validationError) {
+                    $(this.ui.error).show();
+                    $(this.ui.error).html("Error: " + _.map(this.model.validationError, function (error, field) {
+                        return field + " (" + error + ")";
+                    }).join(" ; "));
                 }
             }
         },

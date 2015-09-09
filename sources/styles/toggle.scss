@@ -87,7 +87,7 @@
   }
   &:checked{
     + .tgl-btn{
-      background: #86d993;
+      background: #3ec3fe;
       &:active{
         box-shadow: none;
         &:after{
@@ -135,7 +135,7 @@
   }
   &:checked{
     + .tgl-btn{
-      background: #86d993;
+      background: #3ec3fe;
       &:before{
         left: -100%;
       }

@@ -10,7 +10,7 @@
     <div class="twitter-reader error card" style="display: none">
     </div>
     <div class="settings">
-        <div class="twitter-reader card">
+        <div class="twitter-reader settings card">
             <fieldset>
                 <legend>Account</legend>
                 <input type="text" value="<%= username %>" name="username" />

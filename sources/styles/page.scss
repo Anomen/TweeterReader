@@ -78,8 +78,8 @@ body {
       @include flex-direction(column);
 
       @include breakpoint($tablet) {
-
         margin: 0 ($account_item_gutter / 2);
+
         &:first-of-type {
           margin-left: 0;
         }
@@ -97,7 +97,7 @@ body {
           color: white;
 
           body.editMode & {
-            background-color: orange;
+            background-color: $blue;
           }
 
           .loading {
@@ -186,7 +186,8 @@ body {
   }
 
   &.error {
-    margin-bottom: 0;
+    background-color: $orange;
+    border-color: darken($orange, 0.6);
   }
 }
 
