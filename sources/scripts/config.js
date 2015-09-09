@@ -12,6 +12,7 @@
             backbone: "../libraries/backbone/backbone",
             underscore: "../libraries/lodash/lodash",
             jquery: "../libraries/jquery/dist/jquery",
+            jqueryui: "../libraries/jquery-ui/jquery-ui.min",
             text: "../libraries/requirejs-text/text",
             moment: "../libraries/moment/moment"
         }

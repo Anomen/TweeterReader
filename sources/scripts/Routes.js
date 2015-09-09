@@ -2,8 +2,7 @@ define(function (require) {
     "use strict";
 
     var Marionette    = require("marionette"),
-        AccountsList  = require("views/AccountsList"),
-        accountsStore = require("stores/accountsStore");
+        applicationStore = require("stores/applicationStore");
 
     return function (app) {
         if (!app) {
@@ -12,16 +11,14 @@ define(function (require) {
 
         var Router =  Marionette.AppRouter.extend({
             routes: {
-                "": "homepage"
+                "": "homepage",
+                settings: "settings"
             },
             homepage: function () {
-                // Create AccountList view that makes the list of accounts in columns
-                var view = new AccountsList({
-                    collection: accountsStore
-                });
-
-                // Attach it to the content
-                app.rootView.getRegion("content").show(view);
+                applicationStore.set("isEditMode", false);
+            },
+            settings: function () {
+                applicationStore.set("isEditMode", true);
             }
         });
 

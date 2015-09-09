@@ -10,6 +10,11 @@ $tablet:  740px;
 $desktop: 980px;
 $wide:    1300px;
 
+$grey: #DDD;
+$orange: #feda00;
+$purple: #e03997;
+$blue: #3ec3fe;
+
 $tweet_card_gutter: 9px;
 $tweet_card_padding: 15px;
 $tweet_card_border: 1px solid #DDD;
@@ -20,7 +25,14 @@ $account_item_padding: $tweet_card_padding;
 body {
   background-color: #e7e7e7;
   font-family: monospace;
+  overflow-y: scroll;
   //color: #FFF;
+
+  @include transition(all 0.2s);
+
+  &.editMode {
+    //background-color: #FFF;
+  }
 }
 
 #wrapper {
@@ -32,9 +44,20 @@ body {
   text-align: center;
 
   h1 {
-    @include text-shadow(2px 7px 0px #E289BB);
+    @include text-shadow(1px 3px 0px #E289BB);
     color: white;
-    font-size: 5em;
+    font-size: 2em;
+    margin: 40px 0;
+
+    @include breakpoint(490px) {
+      @include text-shadow(1px 4px 0px #E289BB);
+      font-size: 3em;
+    }
+
+    @include breakpoint(630px) {
+      @include text-shadow(2px 7px 0px #E289BB);
+      font-size: 4em;
+    }
   }
 }
 
@@ -54,45 +77,88 @@ body {
       @include flex(1);
       @include flex-direction(column);
 
-      margin: 0 ($account_item_gutter / 2);
-      
-      > .title {
-        @include box-shadow(#BBB 0px 3px 2px);
-        padding: $account_item_padding;
+      @include breakpoint($tablet) {
+
+        margin: 0 ($account_item_gutter / 2);
+        &:first-of-type {
+          margin-left: 0;
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+
+      > form {
+        > .title {
+          @include transition(all 0.2s);
+          @include box-shadow(#BBB 0px 3px 2px);
+          padding: $account_item_padding;
+          background-color: $purple;
+          color: white;
+
+          body.editMode & {
+            background-color: orange;
+          }
+
+          .loading {
+            float: right;
+          }
+        }
+
+        > .content {
+          @include transition(all 0.5s);
+          @include opacity(1);
+          height: auto;
+          overflow: hidden;
+
+          body.editMode & {
+            @include opacity(0);
+            height: 0;
+          }
+        }
+
+        > .settings {
+          @include transition(all 0.2s);
+          @include opacity(0);
+          @include transform(scaleY(0));
+          height: 0;
+          overflow: hidden;
+
+          body.editMode & {
+            @include transform(scaleY(1));
+            @include opacity(1);
+            height: auto;
+          }
+        }
       }
     }
   }
 
-  &.tweet {
-    &.card {
-      color: black;
-      background-color: #fff;
-      border: $tweet_card_border;
-      margin: $tweet_card_gutter 0;
-      padding: $tweet_card_padding;
+  &.card {
+    color: black;
+    background-color: #fff;
+    border: $tweet_card_border;
+    margin: $tweet_card_gutter 0;
+    padding: $tweet_card_padding;
 
-      @include box-shadow(#BBB 0px 3px 2px);
+    @include box-shadow(#BBB 0px 3px 2px);
 
-      > .footer {
-        color: #BBB;
-        font-size: 0.7em;
-        border-top: $tweet_card_border;
-        margin-top: 10px;
-        padding-top: 5px;
+    > .footer {
+      color: #BBB;
+      font-size: 0.7em;
+      border-top: $tweet_card_border;
+      margin-top: 10px;
+      padding-top: 5px;
 
-        @include display-flex;
-        @include justify-content(space-between);
-        @include align-items(center);
-      }
+      @include display-flex;
+      @include justify-content(space-between);
+      @include align-items(center);
     }
   }
 
   &.user {
     @include display-flex;
     @include align-items(center);
-
-    > .username {
-    }
 
     > .useravatar {
       margin-left: 5px;
@@ -103,4 +169,44 @@ body {
       }
     }
   }
+
+  &.settings {
+    margin-bottom: $tweet_card_gutter;
+
+    form {
+      @include display-flex;
+      @include flex-direction(row);
+      @include justify-content(flex-end);
+      @include align-items(center);
+
+      select {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &.error {
+    margin-bottom: 0;
+  }
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 5px 10px;
+  border: 1px solid #EEE;
+  margin: 1px 0;
+  background-color: #FAFAFA;
+
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  line-height: 1.2142em;
+  border-radius: .28571429rem;
+
+  &[type=submit] {
+    width: 100%;
+  }
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 10px 0;
 }

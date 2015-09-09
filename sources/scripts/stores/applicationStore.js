@@ -1,3 +1,5 @@
-/**
- * Created by anomen on 9/8/15.
- */
+define(function (require) {
+    var ApplicationModel = require("models/ApplicationModel");
+
+    return new ApplicationModel();
+});

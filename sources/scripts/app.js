@@ -14,6 +14,9 @@ define(function (require) {
         app.rootView = new MainLayout();
         $("body").html(app.rootView.render().$el);
 
+        app.rootView.showContent();
+        app.rootView.showSettings();
+
         // initialize the router
         new Routes(app);
 

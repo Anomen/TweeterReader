@@ -5,7 +5,8 @@ define(function (require) {
 
     return Backbone.Model.extend({
         defaults: {
-            position: 0
+            theme: "default",
+            isEditMode: false
         }
     });
 });
