@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         watch: {
             scripts: {
                 files: ["sources/**/*.scss"],
-                tasks: ["sass"],
+                tasks: ["concat", "sass"],
                 options: {
                     atBegin: true,
                     spawn: false
@@ -15,13 +15,21 @@ module.exports = function (grunt) {
         },
         sass: {
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: "sources/styles",
-                    src: ["*.scss"],
-                    dest: "dist/styles",
-                    ext: ".css"
-                }]
+                options: {
+                    compass: true,
+                    loadPath: [
+                        "bower_components/breakpoint-sass/stylesheets"
+                    ]
+                },
+                files: {
+                    "dist/styles/main.css": "dist/styles/main.scss"
+                }
+            }
+        },
+        concat: {
+            css: {
+                src: ["sources/styles/*.scss"],
+                dest: "dist/styles/main.scss"
             }
         },
         connect: {
@@ -49,7 +57,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-sass");
-    grunt.loadNpmTasks('grunt-connect-proxy');
+    grunt.loadNpmTasks("grunt-connect-proxy");
+    grunt.loadNpmTasks("grunt-contrib-concat");
 
     // Default task.
     grunt.registerTask("default", ["configureProxies:server", "connect", "watch"]);

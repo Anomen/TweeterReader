@@ -6,6 +6,7 @@ define(function (require) {
         template   = require("text!./templates/TweetItem.tpl");
 
     return Marionette.ItemView.extend({
-        template: _.template(template)
+        template: _.template(template),
+        className: "twitter-reader tweet card"
     });
 });

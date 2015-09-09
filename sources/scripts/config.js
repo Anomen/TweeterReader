@@ -12,7 +12,8 @@
             backbone: "../libraries/backbone/backbone",
             underscore: "../libraries/lodash/lodash",
             jquery: "../libraries/jquery/dist/jquery",
-            text: "../libraries/requirejs-text/text"
+            text: "../libraries/requirejs-text/text",
+            moment: "../libraries/moment/moment"
         }
     });
 

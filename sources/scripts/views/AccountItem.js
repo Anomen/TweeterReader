@@ -8,7 +8,8 @@ define(function (require) {
 
     return Marionette.CompositeView.extend({
         template: _.template(template),
-        childViewContainer: "ol",
+        className: "twitter-reader account item",
+        childViewContainer: "> .twitter-reader.content",
         childView: TweetItem,
         initialize: function () {
             this.collection = this.model.get("tweets");

@@ -6,6 +6,7 @@ define(function (require) {
 
     return Marionette.CollectionView.extend({
         childView: AccountItem,
+        className: "twitter-reader account list",
         initialize: function () {
             this.collection.fetch();
         }
