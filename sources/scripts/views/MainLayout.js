@@ -3,7 +3,7 @@ define(function (require) {
 
     var Marionette = require("marionette"),
         _          = require("underscore"),
-        template   = require("text!./MainLayout.tpl"),
+        template   = require("text!./templates/MainLayout.tpl"),
         AccountsList  = require("views/AccountsList"),
         accountsStore = require("stores/accountsStore"),
         SettingsView  = require("views/SettingsView"),

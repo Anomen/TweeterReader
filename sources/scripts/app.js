@@ -4,7 +4,7 @@ define(function (require) {
     var Marionette = require("marionette"),
         Backbone   = require("backbone"),
         $          = require("jquery"),
-        MainLayout = require("components/layout/MainLayout"),
+        MainLayout = require("views/MainLayout"),
         Routes     = require("./Routes"),
         app        = new Marionette.Application();
 
