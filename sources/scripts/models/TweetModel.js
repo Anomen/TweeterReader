@@ -21,7 +21,8 @@ define(function (require) {
             return {
                 content: res.text,
                 createdAt: new Date(res.created_at),
-                id: res.id,
+                id: res.id_str,
+                account: userInfo.screen_name,
                 userName: userInfo.name,
                 userAvatar: userInfo.profile_image_url,
                 isRetweeted: isRetweeted
