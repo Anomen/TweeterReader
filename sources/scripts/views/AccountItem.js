@@ -13,6 +13,11 @@ define(function (require) {
     return Marionette.CompositeView.extend({
         template: _.template(template),
         className: "twitter-reader account item",
+        attributes: function () {
+            return {
+                "data-id": this.model.cid
+            };
+        },
         childViewContainer: ".twitter-reader.content",
         childView: TweetItem,
         ui: {
@@ -24,7 +29,10 @@ define(function (require) {
             numberOfTweets: "[name=numberOfTweets]"
         },
         modelEvents: {
-            change: "_fetch"
+            "change:username": "_fetch",
+            "change:from": "_fetch",
+            "change:to": "_fetch",
+            "change:numberOfTweets": "_fetch"
         },
         initialize: function () {
             this.listenTo(applicationStore, "change:isEditMode", this._changeEditMode);

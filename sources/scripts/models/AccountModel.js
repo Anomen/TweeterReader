@@ -12,7 +12,8 @@ define(function (require) {
             username: null,
             numberOfTweets: 25,
             from: null,
-            to: null
+            to: null,
+            position: 0
         },
         initialize: function () {
             this.tweets = new TweetsCollection([], { account: this });

@@ -1,6 +1,9 @@
 <form>
     <div class="title">
         @<%= username %>
+        <div class="handle">
+            <img src="images/reorderIcon.png" />
+        </div>
         <div class="loading">
             <div class="cssload-container">
                 <div class="cssload-double-torus"></div>

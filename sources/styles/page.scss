@@ -105,8 +105,21 @@ body {
             background-color: $blue;
           }
 
-          .loading {
+          .loading, .handle {
             float: right;
+          }
+
+          .handle {
+            margin-top: -5px;
+            display: none;
+
+            &:hover {
+              cursor: move;
+            }
+
+            body.editMode & {
+              display: block;
+            }
           }
         }
 

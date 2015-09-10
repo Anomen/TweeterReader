@@ -9,6 +9,7 @@ define(function (require) {
 
     return Backbone.Collection.extend({
         model: AccountModel,
+        comparator: "position",
         localStorage: new LocalStorage("Accounts"),
         fetchTweets: function (options) {
             options = options || {};
