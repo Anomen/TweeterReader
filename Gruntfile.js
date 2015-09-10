@@ -89,8 +89,8 @@ module.exports = function (grunt) {
                     expand: true,
                     src: [
                         "images/**",
-                        "libraries/jquery-ui/**/*.css",
-                        "libraries/jquery-ui/**/*.png",
+                        "libraries/jquery-ui/themes/base/**/*.css",
+                        "libraries/jquery-ui/themes/base/**/*.png",
                         "libraries/requirejs/require.js",
                         "index.html"
                     ],
