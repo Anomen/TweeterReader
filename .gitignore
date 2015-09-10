@@ -1,3 +1,8 @@
 bower_components
 node_modules
 .idea
+.sass-cache
+dist
+sources/styles/.main.scss
+sources/styles/main.css
+sources/styles/main.css.map
