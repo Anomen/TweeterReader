@@ -24,30 +24,30 @@ define(function (require) {
             numberOfTweets: "[name=numberOfTweets]"
         },
         modelEvents: {
-            loading: "_startLoading",
-            success: "_stopLoading",
-            error: "_stopLoading",
             change: "_fetch"
         },
         initialize: function () {
-            this.collection = this.model.tweets;
             this.listenTo(applicationStore, "change:isEditMode", this._changeEditMode);
+
+            this.collection = this.model.tweets;
+
+            this.listenTo(this.collection, "request", this._startLoading);
+            this.listenTo(this.collection, "sync", this._stopLoading);
+            this.listenTo(this.collection, "error", this._errorLoading);
         },
         _fetch: function () {
-            this.model.fetchTweets();
+            this.model.tweets.fetch();
         },
         _startLoading: function () {
+            $(this.ui.error).hide();
             $(this.ui.loading).show();
         },
-        _stopLoading: function (error) {
-            if (error) {
-                $(this.ui.error).show();
-                $(this.ui.error).html("Error: " + error);
-            }
-            else {
-                $(this.ui.error).hide();
-            }
-
+        _stopLoading: function () {
+            $(this.ui.loading).hide();
+        },
+        _errorLoading: function (error) {
+            $(this.ui.error).show();
+            $(this.ui.error).html("Error: " + error);
             $(this.ui.loading).hide();
         },
         _changeEditMode: function () {

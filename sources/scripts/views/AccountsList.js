@@ -8,7 +8,9 @@ define(function (require) {
         childView: AccountItem,
         className: "twitter-reader account list",
         initialize: function () {
-            this.collection.fetchTweets();
+            this.collection.forEach(function (account) {
+                account.tweets.fetch();
+            });
         }
     });
 });

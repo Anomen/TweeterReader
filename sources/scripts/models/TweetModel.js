@@ -14,6 +14,19 @@ define(function (require) {
             userAvatar: null,
             isRetweeted: false
         },
+        parse: function (res) {
+            var isRetweeted = !!res.retweeted_status,
+                userInfo    = isRetweeted ? res.retweeted_status.user : res.user;
+
+            return {
+                content: res.text,
+                createdAt: new Date(res.created_at),
+                id: res.id,
+                userName: userInfo.name,
+                userAvatar: userInfo.profile_image_url,
+                isRetweeted: isRetweeted
+            };
+        },
         initialize: function () {
             this.on("change:createdAt", this._computeCreatedAt, this);
 

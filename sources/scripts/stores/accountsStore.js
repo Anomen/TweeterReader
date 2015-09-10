@@ -4,7 +4,6 @@ define(function (require) {
 
     accounts.fetch({
         success: function () {
-            debugger;
             if (accounts.length < 3) {
                 accounts.reset([{
                     username: "AppDirect"

@@ -15,7 +15,7 @@ define(function (require) {
             to: null
         },
         initialize: function () {
-            this.tweets = new TweetsCollection();
+            this.tweets = new TweetsCollection([], { account: this });
             this.on("change:username", this._resetTweets, this);
         },
         validate: function (attrs) {
@@ -41,8 +41,10 @@ define(function (require) {
         },
         _resetTweets: function () {
             this.tweets.reset(null);
-        },
+        }
+        /*,
         fetchTweets: function () {
+
             var _this = this;
 
             Backbone.trigger("loading", this);
@@ -74,5 +76,6 @@ define(function (require) {
                 }
             });
         }
+         */
     });
 });
