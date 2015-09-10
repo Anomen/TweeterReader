@@ -29,13 +29,15 @@ define(function (require) {
                 errors.numberOfTweets = "Invalid entry: it must be a number.";
             }
 
-            if (attrs.from !== null && !_.isDate(attrs.from)) {
+            /*
+            if (attrs.from !== null) {
                 errors.from = "Invalid date.";
             }
 
-            if (attrs.to !== null && !_.isDate(attrs.to)) {
+            if (attrs.to !== null) {
                 errors.to = "Invalid date";
             }
+            */
 
             return _.size(errors) > 0 ? errors : false;
         },

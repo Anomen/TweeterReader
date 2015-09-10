@@ -79,13 +79,15 @@ define(function (require) {
 
             $(this.ui.from).datepicker({
                 defaultDate: "+1w",
+                dateFormat: "yy-mm-dd",
                 onClose: function (selectedDate) {
                     $(_this.ui.to).datepicker("option", "minDate", selectedDate);
                 }
             });
             $(this.ui.to).datepicker({
                 defaultDate: "+1w",
-                onClose: function(selectedDate) {
+                dateFormat: "yy-mm-dd",
+                onClose: function (selectedDate) {
                     $(_this.ui.from).datepicker("option", "maxDate", selectedDate);
                 }
             });

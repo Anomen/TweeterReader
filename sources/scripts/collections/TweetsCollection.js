@@ -10,15 +10,22 @@ define(function (require) {
         account: null,
         model: TweetModel,
         url: function () {
-            return "/twitter_server.php?url=" + encodeURIComponent("statuses/user_timeline.json?screen_name=" + this.account.get("username"));
+            return "/twitter_server.php?url=" +
+                encodeURIComponent("search/tweets.json?q=" +
+                        encodeURIComponent(
+                            "@" + this.account.get("username") +
+                            (this.account.get("from") ? " since:" + this.account.get("from") : "") +
+                            (this.account.get("to") ? " until:" + this.account.get("to") : "")
+                        ) +
+                        "&count=" + this.account.get("numberOfTweets"));
         },
         parse: function (response) {
-            if (response.error || response.errors || !_.isArray(response)) {
-                this.trigger("error", response.error || (response.errors && response.errors[0].message) || "An error occurred. Please retry with a different username.");
+            if (response.error || response.errors || !response.statuses || !response.statuses.length) {
+                this.trigger("error", response.error || (response.errors && response.errors[0].message) || "No tweets matching this query.");
                 return [];
             }
             else {
-                return response;
+                return response.statuses;
             }
         },
         initialize: function (models, options) {

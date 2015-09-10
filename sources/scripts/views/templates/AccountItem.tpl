@@ -23,6 +23,7 @@
                 <legend>Date range</legend>
                 <input type="text" name="from" value="<%= from %>" placeholder="From" />
                 <input type="text" name="to" value="<%= to %>" placeholder="To" />
+                <div class="note">Note that Twitter does not allow to search for tweets earlier than 1 week ago.</div>
             </fieldset>
         </div>
     </div>
