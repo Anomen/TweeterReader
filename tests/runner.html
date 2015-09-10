@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="vendor/mocha.css" />
+</head>
+<body>
+<div id="knockout">
+    <div id="home-sections-container"></div>
+</div>
+<div id="mocha"></div>
+<script src="vendor/mocha.js"></script>
+<script src="vendor/lodash.js"></script>
+<script src="vendor/jquery.js"></script>
+<script src="vendor/chai.js"></script>
+<script src="vendor/sinon.js"></script>
+<script src="vendor/sinon-chai.js"></script>
+<script src="vendor/require.js"></script>
+<script type="text/javascript">
+    var expect = chai.expect;
+    mocha.setup("bdd");
+</script>
+<script>
+    require(["scripts/config.js"], function() {
+        require(["/testfiles"], function (files) {
+            // Load the tests
+            require(files, function () {
+                if (window.mochaPhantomJS) {
+                    mochaPhantomJS.run();
+                }
+                else {
+                    mocha.run();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

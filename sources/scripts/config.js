@@ -2,11 +2,7 @@
     "use strict";
 
     require.config({
-        packages: [{
-            name: "homepage",
-            main: "homepage",
-            location: "modules/homepage"
-        }],
+        baseUrl: "scripts",
         paths: {
             marionette: "../libraries/marionette/lib/backbone.marionette",
             backbone: "../libraries/backbone/backbone",
@@ -21,6 +17,4 @@
             localstorage: ["backbone"]
         }
     });
-
-    require(["app"]);
 })(require);
