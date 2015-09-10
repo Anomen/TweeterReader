@@ -1,3 +1,7 @@
+/**
+ * This file is the configuration for requirejs. It determines where to
+ * find the different modules in the file architecture.
+ */
 (function (require) {
     "use strict";
 

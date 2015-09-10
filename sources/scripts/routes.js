@@ -1,7 +1,10 @@
+/**
+ * This file defines the general routes of the application.
+ */
 define(function (require) {
     "use strict";
 
-    var Marionette    = require("marionette"),
+    var Marionette       = require("marionette"),
         applicationStore = require("stores/applicationStore");
 
     return function (app) {
@@ -9,7 +12,7 @@ define(function (require) {
             throw new Error("You need to pass a valid 'app' parameter.");
         }
 
-        var Router =  Marionette.AppRouter.extend({
+        var Router = Marionette.AppRouter.extend({
             routes: {
                 "": "homepage",
                 settings: "settings"
@@ -22,7 +25,6 @@ define(function (require) {
             }
         });
 
-        // Instantiate new router
         new Router();
     };
 });
