@@ -1,5 +1,8 @@
 define(function (require) {
-    var ApplicationModel = require("models/ApplicationModel");
+    var ApplicationModel = require("models/ApplicationModel"),
+        application = new ApplicationModel({id: "app"});
 
-    return new ApplicationModel();
+    application.fetch();
+
+    return application;
 });

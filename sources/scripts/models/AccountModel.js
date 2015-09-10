@@ -7,15 +7,15 @@ define(function (require) {
         _        = require("underscore");
 
     return Backbone.Model.extend({
+        tweets: null,
         defaults: {
             username: null,
-            tweets: null,
             numberOfTweets: 25,
             from: null,
             to: null
         },
         initialize: function () {
-            this.set("tweets", new TweetsCollection());
+            this.tweets = new TweetsCollection();
             this.on("change:username", this._resetTweets, this);
         },
         validate: function (attrs) {
@@ -40,9 +40,9 @@ define(function (require) {
             return _.size(errors) > 0 ? errors : false;
         },
         _resetTweets: function () {
-            this.get("tweets").reset(null);
+            this.tweets.reset(null);
         },
-        fetch: function () {
+        fetchTweets: function () {
             var _this = this;
 
             Backbone.trigger("loading", this);
@@ -68,11 +68,10 @@ define(function (require) {
                             };
                         });
 
-                        _this.get("tweets").reset(tweets);
+                        _this.tweets.reset(tweets);
                         _this.trigger("success");
                     }
                 }
-                // @TODO: error callback
             });
         }
     });

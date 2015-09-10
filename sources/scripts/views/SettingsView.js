@@ -4,6 +4,7 @@ define(function (require) {
     var Marionette = require("marionette"),
         _          = require("underscore"),
         $          = require("jquery"),
+        accountsStore = require("stores/accountsStore"),
         template   = require("text!./templates/SettingsView.tpl");
 
     return Marionette.ItemView.extend({
@@ -22,7 +23,8 @@ define(function (require) {
             "change:theme": "_changeTheme"
         },
         initialize: function () {
-            this._changeEditMode();
+            //this._changeEditMode();
+            this._changeTheme();
         },
         _redirectHomepage: function () {
             document.location.hash = "/";
@@ -48,6 +50,7 @@ define(function (require) {
 
             // Save theme
             this.model.set("theme", $(this.ui.theme).find("option:selected").val());
+            this.model.save();
         },
         _changeTheme: function () {
             $("body").removeClass("default");

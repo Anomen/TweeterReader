@@ -30,12 +30,11 @@ define(function (require) {
             change: "_fetch"
         },
         initialize: function () {
-            this.collection = this.model.get("tweets");
-            // @TODO: unbind!!
+            this.collection = this.model.tweets;
             this.listenTo(applicationStore, "change:isEditMode", this._changeEditMode);
         },
         _fetch: function () {
-            this.model.fetch();
+            this.model.fetchTweets();
         },
         _startLoading: function () {
             $(this.ui.loading).show();
@@ -71,6 +70,8 @@ define(function (require) {
                         return field + " (" + error + ")";
                     }).join(" ; "));
                 }
+
+                this.model.save();
             }
         },
         onRender: function () {
