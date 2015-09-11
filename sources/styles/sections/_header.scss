@@ -1,0 +1,25 @@
+#header {
+  text-align: center;
+
+  h2 {
+    margin-bottom: 40px;
+    color: #AAA;
+  }
+
+  h1 {
+    @include text-shadow(1px 3px 0px #E289BB);
+    color: white;
+    font-size: 2em;
+    margin-top: 40px;
+
+    @include breakpoint(490px) {
+      @include text-shadow(1px 4px 0px #E289BB);
+      font-size: 3em;
+    }
+
+    @include breakpoint(630px) {
+      @include text-shadow(2px 7px 0px #E289BB);
+      font-size: 4em;
+    }
+  }
+}

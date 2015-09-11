@@ -1,3 +1,7 @@
+/**
+ * The model of a tweet.
+ * @see http://backbonejs.org/#Model
+ */
 define(function (require) {
     "use strict";
 
@@ -14,6 +18,13 @@ define(function (require) {
             userAvatar: null,
             isRetweeted: false
         },
+
+        /**
+         * This method is called automatically by backbone when the collection#fetch()
+         * is called: it matches the result from Twitter API and this model attributes.
+         * @param {Object} res The result from Twitter API.
+         * @returns {Object} The map values to match with the attributes.
+         */
         parse: function (res) {
             var isRetweeted = !!res.retweeted_status,
                 userInfo    = isRetweeted ? res.retweeted_status.user : res.user;
@@ -28,6 +39,10 @@ define(function (require) {
                 isRetweeted: isRetweeted
             };
         },
+
+        /**
+         * Constructor.
+         */
         initialize: function () {
             this.on("change:createdAt", this._computeCreatedAt, this);
 
@@ -37,6 +52,11 @@ define(function (require) {
         destroy: function () {
             this.off("change:createdAt", this._computeCreatedAt, this);
         },
+
+        /**
+         * When there is a new date, we save a formatted version of the date.
+         * @private
+         */
         _computeCreatedAt: function () {
             this.set("formattedCreatedAt", moment(this.get("createdAt")).format("lll"));
         }

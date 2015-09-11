@@ -1,0 +1,20 @@
+@import "compass/css3";
+@import "breakpoint";
+
+// Breakpoints
+$mobile:  320px;
+$tablet:  740px;
+$desktop: 980px;
+$wide:    1300px;
+
+$grey: #DDD;
+$orange: #feda00;
+$purple: #e03997;
+$blue: #3ec3fe;
+
+$tweet_card_gutter: 9px;
+$tweet_card_padding: 15px;
+$tweet_card_border: 1px solid #DDD;
+
+$account_item_gutter: $tweet_card_gutter;
+$account_item_padding: $tweet_card_padding;

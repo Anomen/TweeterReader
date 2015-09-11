@@ -1,0 +1,13 @@
+.twitter-reader.user {
+  @include display-flex;
+  @include align-items(center);
+
+  > .useravatar {
+    margin-left: 5px;
+
+    img, & {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

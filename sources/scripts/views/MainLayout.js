@@ -1,3 +1,7 @@
+/**
+ * This class is the general layout of the application.
+ * @see http://marionettejs.com/docs/v2.4.2/marionette.layoutview.html
+ */
 define(function (require) {
     "use strict";
 
@@ -18,6 +22,9 @@ define(function (require) {
             settings: "#settings"
         },
 
+        /**
+         * Display the content part of the application.
+         */
         showContent: function () {
             // Create AccountList view that makes the list of accounts in columns
             var view = new AccountsList({
@@ -28,6 +35,9 @@ define(function (require) {
             this.getRegion("content").show(view);
         },
 
+        /**
+         * Display the settings part of the application.
+         */
         showSettings: function () {
             var view = new SettingsView({
                 model: applicationStore

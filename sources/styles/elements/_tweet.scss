@@ -1,0 +1,7 @@
+.twitter-reader.tweet {
+  cursor: pointer;
+
+  &:hover {
+    @include box-shadow(#777 3px 3px 10px);
+  }
+}

@@ -27,7 +27,7 @@ module.exports = function (grunt) {
         watch: {
             dev: {
                 files: ["sources/**/*.scss"],
-                tasks: ["concat", "sass:dev"],
+                tasks: ["sass:dev"],
                 options: {
                     atBegin: true,
                     spawn: false
@@ -42,18 +42,12 @@ module.exports = function (grunt) {
                 ]
             },
             dev: {
-                src: ["sources/styles/.main.scss"],
+                src: ["sources/styles/main.scss"],
                 dest: "sources/styles/main.css"
             },
             dist: {
-                src: ["sources/styles/.main.scss"],
+                src: ["sources/styles/main.scss"],
                 dest: "dist/styles/main.css"
-            }
-        },
-        concat: {
-            css: {
-                src: ["sources/styles/*.scss"],
-                dest: "sources/styles/.main.scss"
             }
         },
         connect: {
@@ -142,7 +136,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-sass");
     grunt.loadNpmTasks("grunt-connect-proxy");
-    grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-requirejs");
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-clean");
@@ -150,7 +143,7 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask("default", ["server-dev"]);
-    grunt.registerTask("build", ["clean", "requirejs", "copy", "concat", "sass:dist"]);
+    grunt.registerTask("build", ["clean", "requirejs", "copy", "sass:dist"]);
 
     grunt.registerTask("server-dev", ["configureProxies:server", "connect:dev", "watch:dev"]);
     grunt.registerTask("server-dist", ["configureProxies:server", "connect:dist"]);

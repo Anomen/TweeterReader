@@ -28,6 +28,7 @@ define(function (require) {
                 "data-id": this.model.cid
             };
         },
+
         ui: {
             error: ".error",
             loading: ".loading",
@@ -36,6 +37,7 @@ define(function (require) {
             username: "[name=username]",
             numberOfTweets: "[name=numberOfTweets]"
         },
+
         modelEvents: {
             "change:username": "_fetch",
             "change:from": "_fetch",

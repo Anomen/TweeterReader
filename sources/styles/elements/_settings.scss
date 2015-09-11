@@ -1,0 +1,19 @@
+.twitter-reader.settings {
+  margin-bottom: $tweet_card_gutter;
+
+  form {
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(flex-end);
+    @include align-items(center);
+  }
+
+  select {
+    margin-right: 15px;
+    display: none;
+
+    body.editMode & {
+      display: block;
+    }
+  }
+}

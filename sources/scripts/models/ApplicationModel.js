@@ -1,3 +1,7 @@
+/**
+ * The settings of the overall application, saved in localStorage.
+ * @see http://backbonejs.org/#Model
+ */
 define(function (require) {
     "use strict";
 

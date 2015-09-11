@@ -1,0 +1,89 @@
+.twitter-reader.account {
+  @include display-flex;
+
+  &.list {
+    @include flex-direction(column);
+
+    @include breakpoint($tablet) {
+      @include flex-direction(row);
+    }
+  }
+
+  &.item {
+    @include flex(1);
+    @include flex-direction(column);
+
+    @include breakpoint($tablet) {
+      margin: 0 ($account_item_gutter / 2);
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    > form {
+      > .title {
+        @include transition(all 0.2s);
+        @include box-shadow(#BBB 0px 3px 2px);
+        padding: $account_item_padding;
+        background-color: $purple;
+        color: white;
+
+        body.editMode & {
+          background-color: $blue;
+        }
+
+        .loading, .handle {
+          float: right;
+        }
+
+        .handle {
+          margin-top: -5px;
+          display: none;
+
+          &:hover {
+            cursor: move;
+          }
+
+          body.editMode & {
+            display: block;
+          }
+        }
+      }
+
+      > .content {
+        @include transition(all 0.5s);
+        @include opacity(1);
+        height: auto;
+        overflow: hidden;
+
+        body.editMode & {
+          @include opacity(0);
+          height: 0;
+        }
+      }
+
+      > .settings {
+        @include transition(all 0.2s);
+        @include opacity(0);
+        @include transform(scaleY(0));
+        height: 0;
+        overflow: hidden;
+
+        body.editMode & {
+          @include transform(scaleY(1));
+          @include opacity(1);
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .note {
+    font-size: 0.8em;
+    font-style: italic;
+  }
+}

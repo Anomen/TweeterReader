@@ -1,0 +1,6 @@
+@import "../config";
+
+.twitter-reader.error {
+  background-color: $orange;
+  border-color: darken($orange, 0.6);
+}

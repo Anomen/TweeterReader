@@ -1,0 +1,29 @@
+body {
+  background-color: #e7e7e7;
+  font-family: monospace;
+  overflow-y: scroll;
+
+  @include transition(all 0.2s);
+}
+
+input {
+  width: calc(100% - 20px);
+  padding: 5px 10px;
+  border: 1px solid #EEE;
+  margin: 1px 0;
+  background-color: #FAFAFA;
+
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  line-height: 1.2142em;
+  border-radius: .28571429rem;
+
+  &[type=submit] {
+    width: 100%;
+  }
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 10px 0;
+}

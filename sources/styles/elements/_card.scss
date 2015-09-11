@@ -1,0 +1,21 @@
+.twitter-reader.card {
+  color: black;
+  background-color: #fff;
+  border: $tweet_card_border;
+  margin: $tweet_card_gutter 0;
+  padding: $tweet_card_padding;
+
+  @include box-shadow(#BBB 0px 3px 2px);
+
+  > .footer {
+    color: #BBB;
+    font-size: 0.7em;
+    border-top: $tweet_card_border;
+    margin-top: 10px;
+    padding-top: 5px;
+
+    @include display-flex;
+    @include justify-content(space-between);
+    @include align-items(center);
+  }
+}
