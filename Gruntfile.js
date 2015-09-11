@@ -94,10 +94,7 @@ module.exports = function (grunt) {
                     mainConfigFile: "sources/scripts/config.js",
                     name: "app",
                     out: "dist/scripts/config.js",
-                    optimize: "uglify",
-                    wrap: {
-                        endFile: "end.frag"
-                    }
+                    optimize: "uglify"
                 }
             }
         },
