@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             options: {
                 compass: true,
                 loadPath: [
-                    "bower_components/breakpoint-sass/stylesheets"
+                    "sources/libraries/breakpoint-sass/stylesheets"
                 ]
             },
             dev: {
