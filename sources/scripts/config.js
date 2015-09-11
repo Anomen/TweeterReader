@@ -21,4 +21,8 @@
             localstorage: ["backbone"]
         }
     });
+
+    if (!window.hasOwnProperty("mocha")) {
+        require(["app"]);
+    }
 })(require);

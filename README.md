@@ -1,6 +1,22 @@
 # TwitterReader
 This project is a simple reader for Twitter, an AppDirect challenge. It creates 3 columns to read 3 twitter accounts.
 
+## Getting Started
+
+To contribute on this project, here are the few commands to run after cloning this repository:
+
+```
+$ npm install
+$ bower install
+$ grunt
+```
+
+Then, open a browser and go to: `http://localhost:9001`
+
+You have to have a Twitter Proxy running on your machine using this script: http://mikerogers.io/2013/02/25/how-use-twitter-oauth-1-1-javascriptjquery.html
+
+It must be available at this address: `http://localhost/twitter_server.php`.
+
 ## Architecture
 
 This program uses a classical MVC pattern. Under the folder `sources`, you will find:
